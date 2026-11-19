@@ -23,7 +23,7 @@ import {
 
 import "./App.css";
 
-const API = "http://localhost:5000/api/firewall";
+const API = "https://firewallguard.onrender.com/api/firewall";
 
 const initialForm = {
   ruleName: "",
