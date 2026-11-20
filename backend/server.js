@@ -10,14 +10,18 @@ const firewallRoutes = require("./routes/firewallRoutes");
 const app = express();
 
 // CORS CONFIGURATION
+const allowedOrigins = [
+  "https://firewallguard-frontend.onrender.com",
+  "http://localhost:5173"
+];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
 // MIDDLEWARE
 app.use(express.json({ limit: "10kb" }));
 
