@@ -11,6 +11,7 @@ const app = express();
 
 // CORS CONFIGURATION
 const allowedOrigins = [
+  "https://kanishkas1506.github.io",
   "https://firewallguard-frontend.onrender.com",
   "http://localhost:5173"
 ];
@@ -22,6 +23,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 // MIDDLEWARE
 app.use(express.json({ limit: "10kb" }));
 
@@ -61,9 +63,10 @@ const startServer = async () => {
   try {
     await connectDB();
 
-  app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
-});
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+
   } catch (error) {
     console.error("Server startup failed:", error.message);
     process.exit(1);
